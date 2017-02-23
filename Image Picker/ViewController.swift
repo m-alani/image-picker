@@ -17,14 +17,15 @@ class ViewController: UIViewController {
 
     /// The call back for pressing the button
     @IBAction func experiment(_ sender: Any) {
-        //imagePicker()
-        activityController()
+        // imagePicker()
+        // activityController()
+        alertController()
     }
     
     /// Display the default image picker (Modal View)
     func imagePicker() {
-        let nextController = UIImagePickerController()
-        self.present(nextController, animated: true, completion: nil)
+        let controller = UIImagePickerController()
+        self.present(controller, animated: true, completion: nil)
     }
     
     
@@ -32,6 +33,21 @@ class ViewController: UIViewController {
     func activityController() {
         let image = UIImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    /// Display the default Alert controller (Modal View)
+    func alertController() {
+        // A UIAlertController requires a Title & Message to be displayed. It also doesn't have any logic to dismiss itself on its own, so we need to add a UIAlertAction for that
+        let controller = UIAlertController()
+        controller.title = "Alert!"
+        controller.message = "This is a vanilla Alert Controller"
+        let alertAction = UIAlertAction(title: "Cool", style: .default) {
+            action in
+            self.dismiss(animated: true, completion: nil)
+        }
+        controller.addAction(alertAction)
+        
         self.present(controller, animated: true, completion: nil)
     }
 }
