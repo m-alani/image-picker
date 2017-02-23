@@ -17,9 +17,11 @@ class ViewController: UIViewController {
 
     /// The call back for pressing the button
     @IBAction func experiment(_ sender: Any) {
-        // imagePicker()
+        // Uncomment 1 function at a time to experiment with
+        
+        imagePicker()
         // activityController()
-        alertController()
+        // alertController()
     }
     
     /// Display the default image picker (Modal View)
@@ -44,7 +46,7 @@ class ViewController: UIViewController {
         controller.message = "This is a vanilla Alert Controller"
         let alertAction = UIAlertAction(title: "Cool", style: .default) {
             action in
-            self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
         }
         controller.addAction(alertAction)
         
